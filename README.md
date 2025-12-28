@@ -1,6 +1,28 @@
 # Parametric-Light-Matrix
 使用 Processing 建立參數化燈光模擬系統，透過參數探索光在空間中的節奏、流動與聚合型態。
 
+# Light_Time
+
+## 執行環境
+
+- Processing 4.x
+- 無需額外 Library
+- 建議螢幕解析度 ≥ 800×300
+
+## 核心流程
+
+1. 使用 `PGraphics` 將文字繪製成離螢幕影像
+2. 讀取文字影像的 pixel 資料
+3. 以單一垂直掃描柱（scanX）逐步掃描畫面
+4. 只在掃描柱位置顯示 LED 點
+5. 透過掃描移動，讓人眼拼接成完整文字
+
+### 文字設定
+
+```java
+String textToDisplay = "TIME";
+PFont font;
+
 # 2Dsimulation
 
 ## 執行環境
