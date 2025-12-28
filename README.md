@@ -74,7 +74,7 @@
 4. 系統會依關鍵字切換燈光效果
 5. 畫面會顯示目前模式名稱<br><br>
 ---
-# 3Dsimulation
+# 3Dsimulation - ParametricLighting3D
 
 ## 執行環境
 
@@ -145,4 +145,46 @@
 - 燈條以 **sphere** 模擬 LED pixel
 - 地板為 XZ 平面
 - Y 軸為高度方向
-- 相機可自由旋轉與縮放，用於觀察空間結構
+- 相機可自由旋轉與縮放，用於觀察空間結構<br><br>
+---
+# 3Dsimulation - ParametricLighting3D
+
+## 執行環境
+
+- Processing 4.x
+- Renderer：`P3D`
+- 無需額外 Library
+- 建議解析度：900 × 480 以上
+
+## 燈光資料結構
+
+- `numLights`：燈條數量（沿圓環分布，預設 20 根）
+- `numSegments`：每根燈條的垂直 pixel 數
+- `brightness[i][s]`：
+  - `i`：第 i 根燈（環向 index）
+  - `s`：該燈的第 s 個 pixel（垂直 index）
+  - 值域：0 ～ 100（HSB 亮度）
+ 
+## 八個共享參數
+
+本系統所有燈光行為皆由同一組「共享參數」控制，  
+不同效果並非不同演算法，而是同一模型下的不同參數狀態。
+
+| 參數名稱 | 範圍 | 說明 |
+|--------|----|----|
+| tempo | > 0 | 整體時間流動速度，影響光的節奏快慢 |
+| contrast | 0 ～ 1 | 波形非線性程度，控制亮暗對比 |
+| density | 0 ～ 1 | 亮點比例（遮罩門檻），決定亮的數量 |
+| horizontalPhase | 0 ～ 1 | 環向相鄰燈條之間的相位差 |
+| horizontalDirection | -1 / 0 / +1 | 環向方向（右 / 左） |
+| ringTurns | ≥ 0 | 環向一圈內的週期數 |
+| verticalPhase | 0 ～ 1 | 垂直方向的相位偏移量 |
+| verticalDirection | -1 / +1 | 垂直方向（向下 / 向上） |
+
+## 空間配置與座標系（Spatial Configuration）
+
+- 使用 **XZ 平面** 作為地板平面  
+- **Y 軸為高度方向**（燈條由下往上排列）
+- 燈條沿 **240° 圓弧** 分布，保留 120° 缺口
+- 每根燈條由多個垂直 pixel（sphere）組成
+- 每顆 LED 的位置皆可對應至 `(i, s)` 的矩陣索引
