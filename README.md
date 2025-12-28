@@ -17,12 +17,6 @@
 4. 只在掃描柱位置顯示 LED 點
 5. 透過掃描移動，讓人眼拼接成完整文字
 
-### 文字設定
-
-```java
-String textToDisplay = "TIME";
-PFont font;
-
 # 2Dsimulation
 
 ## 執行環境
