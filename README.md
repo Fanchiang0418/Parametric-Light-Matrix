@@ -5,8 +5,8 @@
 
 ## 執行環境
 
-- Processing 4.x
-- 無需額外 Library
+- Processing 4.x（建議）
+- 無需額外安裝 Library
 - 建議螢幕解析度 ≥ 800×300
 
 ## 核心流程
