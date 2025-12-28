@@ -179,7 +179,7 @@
 | horizontalDirection | -1 / 0 / +1 | 環向方向（右 / 左） |
 | ringTurns | ≥ 0 | 環向一圈內的週期數 |
 | verticalPhase | 0 ～ 1 | 垂直方向的相位偏移量 |
-| verticalDirection | -1 / +1 | 垂直方向（向下 / 向上） |
+| verticalDirection | -1 / 0 / +1 | 垂直方向（向下 / 向上） |
 
 ## 空間配置與座標系（Spatial Configuration）
 
