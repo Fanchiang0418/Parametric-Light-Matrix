@@ -3,13 +3,11 @@
 
 ## 2Dsimulation
 
-## 執行環境
+執行環境
 
 - Processing 4.x（建議）
 - 無需額外安裝 Library
 - 使用預設 Renderer 或 P2D 即可
-
----
 
 ## 系統架構說明
 
